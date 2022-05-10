@@ -31,7 +31,7 @@
                   <td>{{$key+1}}</td>
                   <td>{{ucfirst($val->users->name)}}</td>
                   <td>{{ucfirst($val->title)}}</td>
-                  <td><input type="button" style="color:red" onclick="myCopyfunction()" value="{{$val->short_url}}" class="short_url"></td>
+                  <td class="url"><button class="short_url" style="color:red">{{$val->short_url}}</button></td>
                   <td>{{\Illuminate\Support\Str::limit($val->url, 50)}}</td>
                   <td>{!! date('d-M-Y', strtotime($val->created_at)) !!}</td>
                </tr>
@@ -42,11 +42,11 @@
    </div>
 </div>
 <script type="text/javascript">
-function myCopyfunction() {
- var copyText = $(".short_url").val();
-// alert(copyText);
-  navigator.clipboard.writeText(copyText);
+$(".short_url").click(function() {
+    var $row = $(this).closest("tr");    // Find the row
+    var $text = $row.find(".url").text(); // Find the text
+    navigator.clipboard.writeText($text);
  
-}
+});
 </script>
 @endsection
