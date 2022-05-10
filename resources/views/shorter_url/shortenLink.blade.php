@@ -46,7 +46,8 @@ $(".short_url").click(function() {
     var $row = $(this).closest("tr");    // Find the row
     var $text = $row.find(".url").text(); // Find the text
     navigator.clipboard.writeText($text);
- 
+    alert("Copied the text: " + $text);
+
 });
 </script>
 @endsection
