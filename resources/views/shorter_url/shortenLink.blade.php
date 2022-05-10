@@ -44,6 +44,7 @@
 <script type="text/javascript">
 function myCopyfunction() {
  var copyText = $(".short_url").val();
+// alert(copyText);
   navigator.clipboard.writeText(copyText);
  
 }
